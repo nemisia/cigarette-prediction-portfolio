@@ -21,7 +21,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # ===========================
-# COLOR PALETTE
+# COOL TONE COLOR PALETTE
 # ===========================
 COLORS = {
     'primary_bg': '#2D2822',
@@ -39,10 +39,12 @@ COLORS = {
 }
 
 # ===========================
-# CONSTANTS 
+# CONSTANTS - DEPLOYMENT READY
 # ===========================
+# Get the directory where this script is located
 BASE_DIR = Path(__file__).parent
 
+# Use relative paths that work both locally and in deployment
 IMAGE_PATH = BASE_DIR / "bagg.png"
 MASTER_CSV_PATH = BASE_DIR / "features_master_dataset.csv"
 
@@ -71,6 +73,69 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
+
+# ===========================
+# FORCE DARK THEME GLOBALLY
+# ===========================
+st.markdown(f"""
+<style>
+    /* Force dark theme colors */
+    .stApp {{
+        background-color: {COLORS['primary_bg']} !important;
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* All text elements */
+    .stMarkdown, p, span, div, label, .stTextInput, .stSelectbox {{
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {{
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* Sidebar */
+    [data-testid="stSidebar"] {{
+        background-color: {COLORS['secondary_bg']} !important;
+    }}
+    
+    [data-testid="stSidebar"] * {{
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* Buttons - ensure text is visible */
+    .stButton > button {{
+        color: {COLORS['primary_bg']} !important;
+    }}
+    
+    /* Metrics */
+    [data-testid="stMetricValue"] {{
+        color: {COLORS['accent_light']} !important;
+    }}
+    
+    [data-testid="stMetricLabel"] {{
+        color: {COLORS['accent_mid']} !important;
+    }}
+    
+    /* Code blocks */
+    .stCodeBlock, code {{
+        background-color: {COLORS['secondary_bg']} !important;
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* Tables */
+    .dataframe {{
+        color: {COLORS['text_light']} !important;
+    }}
+    
+    /* Input fields */
+    input {{
+        color: {COLORS['text_light']} !important;
+        background-color: {COLORS['secondary_bg']} !important;
+    }}
+</style>
+""", unsafe_allow_html=True)
 
 # ===========================
 # SESSION STATE INITIALIZATION
@@ -191,7 +256,7 @@ def show_welcome_dialog():
     with col2:
         st.markdown("<h1 style='text-align: center; font-size: 42px; font-weight: 300; letter-spacing: 2px; margin-bottom: 30px;'>What's In My Bag?</h1>", unsafe_allow_html=True)
         
-        st.markdown("<p style='text-align: center; font-size: 18px; line-height: 1.9; margin-bottom: 25px;'>Hi, I'm <strong>Yasmine</strong>. This isn't just another data analytics portfolio.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-size: 18px; line-height: 1.9; margin-bottom: 25px;'>Hi, I'm <strong>Yasmine</strong>. This isn't just another data science portfolio.</p>", unsafe_allow_html=True)
         
         st.markdown("<p style='text-align: center; font-size: 18px; line-height: 1.9; margin-bottom: 25px;'>Every day, we carry pieces of our lives. A wallet holds choices. A phone contains emotions. Earphones soundtrack our internal weather.</p>", unsafe_allow_html=True)
         
