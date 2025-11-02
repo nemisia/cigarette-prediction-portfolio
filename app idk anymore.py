@@ -46,7 +46,7 @@ BASE_DIR = Path(__file__).parent
 
 # Use relative paths that work both locally and in deployment
 IMAGE_PATH = BASE_DIR / "bagg.png"
-MASTER_CSV_PATH = BASE_DIR / "features_master_dataset.csv"
+MASTER_CSV_PATH = BASE_DIR / "features_master_dataset_aligned.csv"
 
 IMAGE_NATIVE_W = 1728
 IMAGE_NATIVE_H = 1080
@@ -2287,3 +2287,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
